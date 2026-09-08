@@ -20,3 +20,35 @@ radial-gradient(circle at 15% 15%,rgba(197,154,82,.18),transparent 24%),radial-g
 radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cream)}.small-logo{width:105px;height:105px}.final h2{font-size:clamp(52px,8vw,90px);margin:10px}.music-pill{position:fixed;z-index:10;right:18px;top:18px}.music-pill button{border:1px solid var(--gold);background:rgba(255,250,240,.92);backdrop-filter:blur(8px);padding:10px 14px;border-radius:999px;color:var(--wine);font:600 10px Montserrat;letter-spacing:.1em;text-transform:uppercase}
 @media(max-width:800px){.section{padding:70px 6vw}.event-grid{grid-template-columns:1fr}.photo-feature{grid-template-columns:1fr}.photo-feature img{height:400px}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:190px}.gallery-grid .wide{grid-column:span 2}.venue-card{flex-direction:column;align-items:flex-start}.timer strong{font-size:36px}.hero h1{line-height:.8}}
 @media(max-width:520px){.timer span{font-size:8px}.timer div{padding:18px 4px}.gallery-grid{grid-auto-rows:150px}.hero .monogram{width:125px;height:125px}}
+/* One-time flower shower */
+#flowerShower {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.flower {
+  position: absolute;
+  top: -40px;
+  font-size: 24px;
+  animation: flowerFall 5s linear forwards;
+  opacity: 0.95;
+}
+
+@keyframes flowerFall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
