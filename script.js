@@ -28,3 +28,24 @@ document.getElementById("rsvpForm").addEventListener("submit",(e)=>{
   const text=`Wedding RSVP — Harshita & Ujjwal%0A%0AName: ${encodeURIComponent(name)}%0AAttendance: ${encodeURIComponent(attendance)}%0AGuests: ${encodeURIComponent(guests)}%0AMessage: ${encodeURIComponent(message || "—")}%0A%0A25 November 2026 · Dehradun`;
   window.open(`https://wa.me/919454732985?text=${text}`,"_blank","noopener");
 });
+// Start wedding music on the visitor's first interaction
+let musicStarted = false;
+
+function startWeddingMusic() {
+    if (musicStarted) return;
+
+    const music = document.getElementById("weddingMusic");
+
+    if (music) {
+        music.play()
+            .then(() => {
+                musicStarted = true;
+            })
+            .catch(() => {
+                // Browser may still require another interaction
+            });
+    }
+}
+
+document.addEventListener("click", startWeddingMusic, { once: false });
+document.addEventListener("touchstart", startWeddingMusic, { once: false });
