@@ -95,3 +95,28 @@ document.getElementById("rsvpForm").addEventListener("submit", (e) => {
 
   window.open(whatsappURL, "_blank", "noopener");
 });
+// One-time flower shower when invitation opens
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById("flowerShower");
+
+  if (!container) return;
+
+  const flowers = ["🌸", "🌺", "🌼", "🌷", "💮"];
+
+  for (let i = 0; i < 45; i++) {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.left = Math.random() * 100 + "%";
+    flower.style.animationDelay = Math.random() * 2 + "s";
+    flower.style.fontSize = 18 + Math.random() * 16 + "px";
+
+    container.appendChild(flower);
+  }
+
+  // Remove the flowers after 8 seconds
+  setTimeout(function () {
+    container.remove();
+  }, 8000);
+});
