@@ -33,7 +33,7 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
   position: absolute;
   top: -40px;
   font-size: 24px;
-  animation: flowerFall 5s linear forwards;
+  animation: flowerFall 10s linear forwards;
   opacity: 0.95;
 }
 
