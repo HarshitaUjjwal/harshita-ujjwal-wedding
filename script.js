@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!container) return;
 
-  const petalCount = 42;
+  const petalCount = 32;
 
   for (let i = 0; i < petalCount; i++) {
 
@@ -119,14 +119,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Different falling speeds
     petal.style.animationDelay =
-      (Math.random() * 1.8) + "s";
+  (Math.random() * 2.5) + "s";
 
-    petal.style.animationDuration =
-      (5.5 + Math.random() * 3) + "s";
-
+petal.style.animationDuration =
+  (6 + Math.random() * 3) + "s";
+    
     // Different petal sizes
     const size =
-      11 + Math.random() * 13;
+      7 + Math.random() * 10;
 
     petal.style.setProperty(
       "--size",
