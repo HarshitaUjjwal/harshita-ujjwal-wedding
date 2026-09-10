@@ -97,33 +97,91 @@ document.getElementById("rsvpForm").addEventListener("submit", (e) => {
 });
 // One-time flower shower when invitation opens
 // ======================================
-// ROSE PETAL SHOWER — 10 SECONDS
+// NATURAL ROSE PETAL SHOWER — 8 SECONDS
 // ======================================
 
 document.addEventListener("DOMContentLoaded", function () {
+
   const container = document.getElementById("flowerShower");
 
   if (!container) return;
 
-  const petalCount = 55;
+  const petalCount = 42;
 
   for (let i = 0; i < petalCount; i++) {
+
     const petal = document.createElement("div");
 
     petal.className = "rose-petal";
 
+    // Random horizontal starting position
     petal.style.left = Math.random() * 100 + "%";
-    petal.style.animationDelay = Math.random() * 2 + "s";
-    petal.style.animationDuration = (5 + Math.random() * 3) + "s";
 
-    const size = 10 + Math.random() * 14;
-    petal.style.width = size + "px";
-    petal.style.height = size * 0.65 + "px";
+    // Different falling speeds
+    petal.style.animationDelay =
+      (Math.random() * 1.8) + "s";
+
+    petal.style.animationDuration =
+      (5.5 + Math.random() * 3) + "s";
+
+    // Different petal sizes
+    const size =
+      11 + Math.random() * 13;
+
+    petal.style.setProperty(
+      "--size",
+      size + "px"
+    );
+
+    // Natural sideways drifting
+    const drift1 =
+      (-100 + Math.random() * 200) + "px";
+
+    const drift2 =
+      (-120 + Math.random() * 240) + "px";
+
+    const drift3 =
+      (-100 + Math.random() * 200) + "px";
+
+    petal.style.setProperty(
+      "--drift1",
+      drift1
+    );
+
+    petal.style.setProperty(
+      "--drift2",
+      drift2
+    );
+
+    petal.style.setProperty(
+      "--drift3",
+      drift3
+    );
+
+    // Random rotation
+    const rotation =
+      Math.random() * 360;
+
+    petal.style.setProperty(
+      "--rotation",
+      rotation + "deg"
+    );
+
+    // Random spin direction
+    const spin =
+      Math.random() > 0.5 ? 1 : -1;
+
+    petal.style.setProperty(
+      "--spin",
+      spin
+    );
 
     container.appendChild(petal);
   }
 
+  // Remove shower after 8 seconds
   setTimeout(function () {
     container.remove();
   }, 8000);
+
 });
