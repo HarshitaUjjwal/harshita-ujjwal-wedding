@@ -135,13 +135,13 @@ petal.style.animationDuration =
 
     // Natural sideways drifting
     const drift1 =
-      (-100 + Math.random() * 200) + "px";
+  (-180 + Math.random() * 360) + "px";
 
-    const drift2 =
-      (-120 + Math.random() * 240) + "px";
+const drift2 =
+  (-220 + Math.random() * 440) + "px";
 
-    const drift3 =
-      (-100 + Math.random() * 200) + "px";
+const drift3 =
+  (-180 + Math.random() * 360) + "px";
 
     petal.style.setProperty(
       "--drift1",
