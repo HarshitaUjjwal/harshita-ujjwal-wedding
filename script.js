@@ -97,7 +97,7 @@ document.getElementById("rsvpForm").addEventListener("submit", (e) => {
 });
 // One-time flower shower when invitation opens
 // ======================================
-// NATURAL ROSE PETAL SHOWER — 8 SECONDS
+// ONE-TIME FLOWER SHOWER — 10 SECONDS
 // ======================================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -106,80 +106,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!container) return;
 
-  const petalCount = 42;
+  const flowers = [
+    "🌸",
+    "🌺",
+    "🌷",
+    "🌼",
+    "💮",
+    "🌹"
+  ];
 
-  for (let i = 0; i < petalCount; i++) {
+  const flowerCount = 45;
 
-    const petal = document.createElement("div");
+  for (let i = 0; i < flowerCount; i++) {
 
-    petal.className = "rose-petal";
+    const flower = document.createElement("div");
 
-    // Random horizontal starting position
-    petal.style.left = Math.random() * 100 + "%";
+    flower.className = "flower";
 
-    // Different falling speeds
-    petal.style.animationDelay =
-  (Math.random() * 2.5) + "s";
+    flower.textContent =
+      flowers[Math.floor(Math.random() * flowers.length)];
 
-petal.style.animationDuration =
-  (6 + Math.random() * 3) + "s";
-    
-    // Different petal sizes
-    const size =
-      7 + Math.random() * 10;
+    flower.style.left =
+      Math.random() * 100 + "%";
 
-    petal.style.setProperty(
-      "--size",
-      size + "px"
-    );
+    flower.style.animationDelay =
+      Math.random() * 2 + "s";
 
-    // Natural sideways drifting
-    const drift1 =
-  (-180 + Math.random() * 360) + "px";
+    flower.style.animationDuration =
+      (6 + Math.random() * 4) + "s";
 
-const drift2 =
-  (-220 + Math.random() * 440) + "px";
+    flower.style.fontSize =
+      (18 + Math.random() * 12) + "px";
 
-const drift3 =
-  (-180 + Math.random() * 360) + "px";
+    flower.style.transform =
+      "rotate(" + (Math.random() * 360) + "deg)";
 
-    petal.style.setProperty(
-      "--drift1",
-      drift1
-    );
-
-    petal.style.setProperty(
-      "--drift2",
-      drift2
-    );
-
-    petal.style.setProperty(
-      "--drift3",
-      drift3
-    );
-
-    // Random rotation
-    const rotation =
-      Math.random() * 360;
-
-    petal.style.setProperty(
-      "--rotation",
-      rotation + "deg"
-    );
-
-    // Random spin direction
-    const spin =
-      Math.random() > 0.5 ? 1 : -1;
-
-    petal.style.setProperty(
-      "--spin",
-      spin
-    );
-
-    container.appendChild(petal);
+    container.appendChild(flower);
   }
 
-  // Remove shower after 8 seconds
   setTimeout(function () {
     container.remove();
   }, 8000);
