@@ -97,7 +97,7 @@ document.getElementById("rsvpForm").addEventListener("submit", (e) => {
 });
 // One-time flower shower when invitation opens
 // ======================================
-// ONE-TIME FLOWER SHOWER — 10 SECONDS
+// ONE-TIME FLOWER SHOWER — 8 SECONDS
 // ======================================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -138,14 +138,15 @@ document.addEventListener("DOMContentLoaded", function () {
     flower.style.fontSize =
       (18 + Math.random() * 12) + "px";
 
-    flower.style.transform =
-      "rotate(" + (Math.random() * 360) + "deg)";
+    // IMPORTANT:
+    // Do NOT set transform here.
+    // CSS animation controls the movement.
 
     container.appendChild(flower);
   }
 
   setTimeout(function () {
     container.remove();
-  }, 8000);
+  }, 10000);
 
 });
