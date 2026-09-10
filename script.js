@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!container) return;
 
-  const petalCount = 32;
+  const petalCount = 42;
 
   for (let i = 0; i < petalCount; i++) {
 
