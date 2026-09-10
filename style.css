@@ -22,7 +22,7 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
 @media(max-width:520px){.timer span{font-size:8px}.timer div{padding:18px 4px}.gallery-grid{grid-auto-rows:150px}.hero .monogram{width:125px;height:125px}}
 /* One-time flower shower */
 /* ======================================
-   LUXURY DARK RED ROSE PETAL SHOWER
+   NATURAL LUXURY ROSE PETAL SHOWER
    ====================================== */
 
 #flowerShower {
@@ -30,73 +30,209 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
   inset: 0;
   width: 100%;
   height: 100%;
+
   pointer-events: none;
+
   overflow: hidden;
+
   z-index: 99999;
 }
 
-.rose-petal {
-  position: absolute;
-  top: -35px;
 
-  background: linear-gradient(
-    135deg,
-    #8b0000,
-    #b30018,
-    #65000a
+/* Individual rose petal */
+
+.rose-petal {
+
+  position: absolute;
+
+  top: -45px;
+
+  width: var(--size);
+  height: calc(var(--size) * 1.35);
+
+  /* Rich natural burgundy/red */
+  background:
+    radial-gradient(
+      ellipse at 35% 25%,
+      rgba(255, 120, 120, 0.75) 0%,
+      rgba(190, 20, 45, 0.95) 28%,
+      rgba(125, 0, 25, 0.98) 65%,
+      rgba(70, 0, 12, 1) 100%
+    );
+
+  /*
+     Irregular petal shape
+     instead of the old oval
+  */
+  clip-path: polygon(
+    50% 0%,
+    72% 8%,
+    91% 27%,
+    100% 48%,
+    88% 70%,
+    69% 88%,
+    48% 100%,
+    27% 87%,
+    9% 67%,
+    0% 43%,
+    13% 21%,
+    30% 7%
   );
 
-  border-radius: 80% 20% 80% 20%;
+  /*
+     Soft natural depth
+  */
+  filter:
+    drop-shadow(
+      0 3px 4px
+      rgba(70, 0, 0, 0.28)
+    );
 
-  box-shadow:
-    0 2px 5px rgba(70, 0, 0, 0.35);
+  opacity: 0;
 
-  opacity: 0.95;
+  transform-origin: center center;
 
   animation:
-    rosePetalFall
+    naturalRoseFall
     linear
     forwards;
-
-  transform: rotate(0deg);
 }
 
-@keyframes rosePetalFall {
+
+/* Subtle highlight on the petal */
+
+.rose-petal::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 28%;
+  top: 10%;
+
+  width: 22%;
+  height: 70%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.32),
+      rgba(255,255,255,0)
+    );
+
+  border-radius: 50%;
+
+  transform: rotate(18deg);
+
+  opacity: 0.45;
+}
+
+
+/* Natural falling + tumbling */
+
+@keyframes naturalRoseFall {
 
   0% {
+
     transform:
-      translate3d(0, -40px, 0)
-      rotate(0deg)
-      scale(0.8);
-
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  35% {
-    transform:
-      translate3d(60px, 35vh, 0)
-      rotate(140deg)
-      scale(1);
-  }
-
-  65% {
-    transform:
-      translate3d(-70px, 70vh, 0)
-      rotate(260deg)
-      scale(0.9);
-  }
-
-  100% {
-    transform:
-      translate3d(80px, 115vh, 0)
-      rotate(420deg)
+      translate3d(
+        0,
+        -50px,
+        0
+      )
+      rotate(
+        var(--rotation)
+      )
       scale(0.75);
 
     opacity: 0;
-  }
-}
 
+  }
+
+
+  8% {
+
+    opacity: 0.95;
+
+  }
+
+
+  25% {
+
+    transform:
+      translate3d(
+        var(--drift1),
+        25vh,
+        0
+      )
+      rotate(
+        calc(
+          var(--rotation)
+          + (var(--spin) * 120deg)
+        )
+      )
+      scale(1);
+
+  }
+
+
+  50% {
+
+    transform:
+      translate3d(
+        var(--drift2),
+        52vh,
+        0
+      )
+      rotate(
+        calc(
+          var(--rotation)
+          + (var(--spin) * 240deg)
+        )
+      )
+      scale(0.92);
+
+  }
+
+
+  75% {
+
+    transform:
+      translate3d(
+        var(--drift3),
+        78vh,
+        0
+      )
+      rotate(
+        calc(
+          var(--rotation)
+          + (var(--spin) * 360deg)
+        )
+      )
+      scale(1.05);
+
+  }
+
+
+  100% {
+
+    transform:
+      translate3d(
+        var(--drift1),
+        115vh,
+        0
+      )
+      rotate(
+        calc(
+          var(--rotation)
+          + (var(--spin) * 520deg)
+        )
+      )
+      scale(0.8);
+
+    opacity: 0;
+
+  }
+
+}
+  
