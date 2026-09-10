@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "🌹"
   ];
 
-  const flowerCount = 45;
+  const flowerCount = 40;
 
   for (let i = 0; i < flowerCount; i++) {
 
@@ -132,8 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     flower.style.animationDelay =
       Math.random() * 2 + "s";
 
-    flower.style.animationDuration =
-      (6 + Math.random() * 4) + "s";
+    flower.style.animationDuration = "8s";
 
     flower.style.fontSize =
       (18 + Math.random() * 12) + "px";
