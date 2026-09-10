@@ -21,76 +21,73 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
 @media(max-width:800px){.section{padding:70px 6vw}.event-grid{grid-template-columns:1fr}.photo-feature{grid-template-columns:1fr}.photo-feature img{height:400px}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:190px}.gallery-grid .wide{grid-column:span 2}.venue-card{flex-direction:column;align-items:flex-start}.timer strong{font-size:36px}.hero h1{line-height:.8}}
 @media(max-width:520px){.timer span{font-size:8px}.timer div{padding:18px 4px}.gallery-grid{grid-auto-rows:150px}.hero .monogram{width:125px;height:125px}}
 /* One-time flower shower */
-/* ======================================
-   NATURAL LUXURY ROSE PETAL SHOWER
-   ====================================== */
+/* ==========================================
+   NATURAL BURGUNDY ROSE PETAL SHOWER
+   ========================================== */
 
 #flowerShower {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
-
   pointer-events: none;
-
   overflow: hidden;
-
   z-index: 99999;
 }
 
 
-/* Individual rose petal */
+/* ==========================================
+   INDIVIDUAL ROSE PETAL
+   ========================================== */
 
 .rose-petal {
-
   position: absolute;
 
-  top: -45px;
+  top: -50px;
 
   width: var(--size);
   height: calc(var(--size) * 1.35);
 
-  /* Rich natural burgundy/red */
+  /*
+     Soft burgundy rose color
+  */
   background:
     radial-gradient(
-      ellipse at 35% 25%,
-      rgba(255, 120, 120, 0.75) 0%,
-      rgba(190, 20, 45, 0.95) 28%,
-      rgba(125, 0, 25, 0.98) 65%,
-      rgba(70, 0, 12, 1) 100%
+      ellipse at 35% 20%,
+      rgba(255, 135, 145, 0.60) 0%,
+      rgba(205, 35, 60, 0.95) 25%,
+      rgba(150, 8, 35, 0.98) 58%,
+      rgba(82, 0, 18, 1) 100%
     );
 
   /*
-     Irregular petal shape
-     instead of the old oval
+     Natural curved petal shape
   */
-  clip-path: polygon(
-    50% 0%,
-    72% 8%,
-    91% 27%,
-    100% 48%,
-    88% 70%,
-    69% 88%,
-    48% 100%,
-    27% 87%,
-    9% 67%,
-    0% 43%,
-    13% 21%,
-    30% 7%
-  );
+  border-radius:
+    70% 30% 65% 35%
+    /
+    80% 45% 60% 30%;
 
   /*
-     Soft natural depth
+     Slightly folded appearance
+  */
+  box-shadow:
+    inset 3px 2px 5px rgba(255, 180, 180, 0.18),
+    inset -3px -3px 5px rgba(65, 0, 15, 0.25),
+    0 2px 4px rgba(70, 0, 0, 0.20);
+
+  /*
+     Soft edge
   */
   filter:
     drop-shadow(
-      0 3px 4px
-      rgba(70, 0, 0, 0.28)
+      0 2px 3px
+      rgba(70, 0, 0, 0.18)
     );
 
   opacity: 0;
 
-  transform-origin: center center;
+  transform-origin: 50% 45%;
 
   animation:
     naturalRoseFall
@@ -99,36 +96,64 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
 }
 
 
-/* Subtle highlight on the petal */
+/* ==========================================
+   PETAL INNER CURVE / HIGHLIGHT
+   ========================================== */
 
-.rose-petal::after {
-
+.rose-petal::before {
   content: "";
 
   position: absolute;
 
-  left: 28%;
-  top: 10%;
+  left: 25%;
+  top: 12%;
 
-  width: 22%;
+  width: 45%;
   height: 70%;
+
+  border-left:
+    1px solid
+    rgba(255, 190, 190, 0.22);
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-18deg);
+
+  opacity: 0.55;
+}
+
+
+.rose-petal::after {
+  content: "";
+
+  position: absolute;
+
+  left: 36%;
+  top: 8%;
+
+  width: 18%;
+  height: 65%;
 
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.32),
-      rgba(255,255,255,0)
+      rgba(255, 230, 230, 0.25),
+      rgba(255, 255, 255, 0)
     );
 
   border-radius: 50%;
 
-  transform: rotate(18deg);
+  transform:
+    rotate(20deg);
 
-  opacity: 0.45;
+  opacity: 0.35;
 }
 
 
-/* Natural falling + tumbling */
+/* ==========================================
+   NATURAL FALLING MOVEMENT
+   ========================================== */
 
 @keyframes naturalRoseFall {
 
@@ -137,13 +162,13 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
     transform:
       translate3d(
         0,
-        -50px,
+        -60px,
         0
       )
       rotate(
         var(--rotation)
       )
-      scale(0.75);
+      scale(0.70);
 
     opacity: 0;
 
@@ -152,7 +177,7 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
 
   8% {
 
-    opacity: 0.95;
+    opacity: 0.92;
 
   }
 
@@ -168,48 +193,48 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
       rotate(
         calc(
           var(--rotation)
-          + (var(--spin) * 120deg)
+          + (var(--spin) * 110deg)
         )
       )
-      scale(1);
+      scale(0.95);
 
   }
 
 
-  50% {
+  48% {
 
     transform:
       translate3d(
         var(--drift2),
-        52vh,
+        50vh,
         0
       )
       rotate(
         calc(
           var(--rotation)
-          + (var(--spin) * 240deg)
+          + (var(--spin) * 235deg)
         )
       )
-      scale(0.92);
+      scale(0.88);
 
   }
 
 
-  75% {
+  70% {
 
     transform:
       translate3d(
         var(--drift3),
-        78vh,
+        72vh,
         0
       )
       rotate(
         calc(
           var(--rotation)
-          + (var(--spin) * 360deg)
+          + (var(--spin) * 390deg)
         )
       )
-      scale(1.05);
+      scale(0.96);
 
   }
 
@@ -225,14 +250,14 @@ radial-gradient(circle at 50% 20%,rgba(197,154,82,.14),transparent 35%),var(--cr
       rotate(
         calc(
           var(--rotation)
-          + (var(--spin) * 520deg)
+          + (var(--spin) * 560deg)
         )
       )
-      scale(0.8);
+      scale(0.75);
 
     opacity: 0;
 
   }
 
 }
-  
+     
