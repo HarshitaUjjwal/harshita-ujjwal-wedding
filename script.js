@@ -96,26 +96,33 @@ document.getElementById("rsvpForm").addEventListener("submit", (e) => {
   window.open(whatsappURL, "_blank", "noopener");
 });
 // One-time flower shower when invitation opens
+// ======================================
+// ROSE PETAL SHOWER — 10 SECONDS
+// ======================================
+
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("flowerShower");
 
   if (!container) return;
 
-  const flowers = ["🌸", "🌺", "🌼", "🌷", "💮"];
+  const petalCount = 55;
 
-  for (let i = 0; i < 45; i++) {
-    const flower = document.createElement("div");
-    flower.className = "flower";
-    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+  for (let i = 0; i < petalCount; i++) {
+    const petal = document.createElement("div");
 
-    flower.style.left = Math.random() * 100 + "%";
-    flower.style.animationDelay = Math.random() * 2 + "s";
-    flower.style.fontSize = 18 + Math.random() * 16 + "px";
+    petal.className = "rose-petal";
 
-    container.appendChild(flower);
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.animationDelay = Math.random() * 2 + "s";
+    petal.style.animationDuration = (5 + Math.random() * 3) + "s";
+
+    const size = 10 + Math.random() * 14;
+    petal.style.width = size + "px";
+    petal.style.height = size * 0.65 + "px";
+
+    container.appendChild(petal);
   }
 
-  // Remove the flowers after 8 seconds
   setTimeout(function () {
     container.remove();
   }, 8000);
